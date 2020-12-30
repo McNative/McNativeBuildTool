@@ -23,7 +23,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.mcnative</groupId>
+    <groupId>org.mcnative.builtool</groupId>
     <artifactId>McNativeBuildTool</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0.0-SNAPSHOT</version>
@@ -80,16 +80,7 @@
     </properties>
 
     <modules>
-        <module>mcnative-common</module>
-        <module>mcnative-network-integrations</module>
-        <module>mcnative-proxy</module>
-        <module>mcnative-service</module>
-        <module>mcnative-bukkit</module>
-        <module>mcnative-bungeecord</module>
         <module>mcnative-buildtool-maven</module>
-        <module>mcnative-loader</module>
-        <module>mcnative-build</module>
-        <module>mcnative-licensing</module>
     </modules>
 
     <repositories>
