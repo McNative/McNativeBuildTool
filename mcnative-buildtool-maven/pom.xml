@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.mcnative.buildtool</groupId>
         <artifactId>McNativeBuildTool</artifactId>
-        <version>1.0.3.10-SNAPSHOT</version>
+        <version>1.0.4.11-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
