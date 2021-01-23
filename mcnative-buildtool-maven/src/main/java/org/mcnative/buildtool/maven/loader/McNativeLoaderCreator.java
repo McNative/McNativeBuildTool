@@ -134,7 +134,7 @@ public class McNativeLoaderCreator {
 
     private void createLoaderInfo(McNativePluginManifest manifest){
         Properties info = new Properties();
-        info.setProperty("installMcNative",manifest.getInstallMcNative().trim());
+        info.setProperty("installMcNative",String.valueOf(manifest.isInstallMcNative()));
         info.setProperty("plugin.name",manifest.getName());
         info.setProperty("plugin.id",manifest.getId());
         info.setProperty("plugin.website",manifest.getWebsite());
