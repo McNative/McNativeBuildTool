@@ -67,7 +67,7 @@ public class McNativePackageMojo extends AbstractMojo {
                     ,new String[]{
                             "**/net/pretronic/libraries/resourceloader/**"
                             ,"**/"+basePath+"/**"
-                            ,"**/mcnative-loader.json"
+                            ,"**/mcnative-loader.properties"
                             ,"**/plugin.yml"
                             ,"**/bungee.yml"
                     },new String[]{"META-INF/maven/**"});
