@@ -26,7 +26,7 @@
     <groupId>org.mcnative.buildtool</groupId>
     <artifactId>McNativeBuildTool</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.6.13-SNAPSHOT</version>
+    <version>1.0.7.14-SNAPSHOT</version>
 
     <distributionManagement>
         <repository>
