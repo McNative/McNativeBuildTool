@@ -43,7 +43,7 @@ public class McNativePluginManifest {
     private String main;
 
     @Parameter(required = true)
-    private boolean installMcNative;
+    private String installMcNative;
 
     private String messageModule;
     private String description;
@@ -56,7 +56,7 @@ public class McNativePluginManifest {
         return name;
     }
 
-    public boolean isInstallMcNative() {
+    public String getInstallMcNative() {
         return installMcNative;
     }
 
