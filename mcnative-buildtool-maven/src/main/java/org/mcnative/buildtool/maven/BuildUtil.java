@@ -12,5 +12,4 @@ public class BuildUtil {
         }
         return builder.toString().replace("_","");
     }
-
 }
