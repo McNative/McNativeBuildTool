@@ -33,10 +33,12 @@ import org.codehaus.plexus.util.FileUtils;
 import org.mcnative.buildtool.maven.McNativePluginManifest;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.util.Properties;
 
 public class McNativeLoaderCreator {
 
@@ -118,30 +120,30 @@ public class McNativeLoaderCreator {
     }
 
     private void createBungeeCordManifest(Document document){
-        document.set("main",basePackage+".bootstrap.BungeeCordMcNativePluginBootstrap");
+        document.set("main",basePackage+".bootstrap.standalone.BungeeCordMcNativePluginBootstrap");
         document.set("version","McNative loader ("+version+")");
         DocumentFileType.YAML.getWriter().write(new File(resourceDirectory,"bungee.yml"),document);
     }
 
     private void createBukkitManifest(Document document){
-        document.set("main",basePackage+".bootstrap.BukkitMcNativePluginBootstrap");
+        document.set("main",basePackage+".bootstrap.standalone.BukkitMcNativePluginBootstrap");
         document.set("version","McNative loader ("+version+")");
         document.rename("softDepends","softdepend");
         DocumentFileType.YAML.getWriter().write(new File(resourceDirectory,"plugin.yml"),document);
     }
 
     private void createLoaderInfo(McNativePluginManifest manifest){
-        Document info = Document.newDocument();
-        info.set("name",manifest.getName());
-        info.set("id",manifest.getId());
-        info.set("description",manifest.getDescription());
-        info.set("website",manifest.getWebsite());
-        info.set("author",manifest.getAuthor());
+        Properties info = new Properties();
+        info.setProperty("installMcNative",String.valueOf(manifest.isInstallMcNative()));
+        info.setProperty("plugin.name",manifest.getName());
+        info.setProperty("plugin.id",manifest.getId());
+        info.setProperty("plugin.website",manifest.getWebsite());
+        info.setProperty("plugin.author",manifest.getAuthor());
 
-        Document root = Document.newDocument();
-        root.set("plugin",info);
-
-        DocumentFileType.JSON.getWriter().write(new File(resourceDirectory,"mcnative-loader.json"),root);
+        try {
+            info.store(new FileOutputStream(new File(resourceDirectory,"mcnative-loader.properties")), null);
+        } catch (IOException e) {
+            throw new IORuntimeException(e);
+        }
     }
-
 }

@@ -42,6 +42,9 @@ public class McNativePluginManifest {
     @Parameter(required = true)
     private String main;
 
+    @Parameter(required = true)
+    private boolean installMcNative;
+
     private String messageModule;
     private String description;
     private String website;
@@ -51,6 +54,10 @@ public class McNativePluginManifest {
 
     public String getName() {
         return name;
+    }
+
+    public boolean isInstallMcNative() {
+        return installMcNative;
     }
 
     public String getId() {
